@@ -1,12 +1,14 @@
 import random
 import string
 
+# Evalua el valor adivinado
 def guess_val():
     if guess < val:
         print(b, 'es mayor')
     if guess > val:
         print(b, 'es menor')
 
+# Define de forma aleatoria si se adivinará letras o números
 def random_game():
     adiv = random.randint(0,1)
     if adiv == 0:
@@ -22,12 +24,12 @@ def random_game():
     return a, b, c
 
 
-player_name = input("Hola, cual es tu nombre?\n")
+player_name = input("Hola, ¿cuál es tu nombre?\n")
 val, tipo, rango = random_game()
-print('Hola, '+ player_name +'! Estoy pensando en '+ tipo +' entre '+ rango +':')
+print('¡Hola, '+ player_name +'! Estoy pensando en '+ tipo +' entre '+ rango +':')
 
 number_of_guesses = 0
-while True:
+while True: #Para definir número de intentos máximo cambiar a while number_of_guesses < #
     if tipo == "un número":
         guess = int(input("Posible número: "))
         b = "El número" 
@@ -39,7 +41,7 @@ while True:
     if guess == val:
         break
 
-# if guess == number:
-#     print('Adivinaste el número en', number_of_guesses, 'intentos!')
-# else:
-#     print('You did not guess the number, The number was', number)
+if guess == val:
+    print('¡Adivinaste en', number_of_guesses, 'intentos!')
+else: #solo se ejecutará cuando se defina un número de intentos máximo
+    print('¡Número de intentos superados!', b, 'es', val) 
