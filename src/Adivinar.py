@@ -31,10 +31,17 @@ print('¡Hola, '+ player_name +'! Estoy pensando en '+ tipo +' entre '+ rango +'
 number_of_guesses = 0
 while True: #Para definir número de intentos máximo cambiar a while number_of_guesses < #
     if tipo == "un número":
-        guess = int(input("Posible número: "))
+        try:
+            guess = int(input("Posible número: "))
+        except:
+            print('No es un número')
+            continue
         b = "El número" 
     else:
         guess = input("Posible letra: ")
+        if guess not in string.ascii_lowercase:
+            print('Ingresar letra minúscula')
+            continue
         b = "La letra"
     number_of_guesses += 1
     guess_val()
